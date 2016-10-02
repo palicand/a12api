@@ -27,7 +27,7 @@ def get_current_station(current_location):
     #         current_station = station
     # return current_station
 
-    for station in range(locations.shape[0]):
+    for station in xrange(locations.shape[0]):
         act_dist = np.linalg.norm(np.array([lat[station],
                                            lng[station]]) - current_location)
         if act_dist < min_dist:
@@ -39,7 +39,7 @@ def get_current_station(current_location):
 def get_response_dict(current_station, time):
     response_array = []
     dist_mat = distances[time]
-    for station in range(locations.shape[0]):
+    for station in xrange(locations.shape[0]):
         if np.isfinite(dist_mat[current_station][station]):
             response_array.append({"lat": lat[station], "lng": lng[station],
                                    "value": dist_mat[current_station][station],
